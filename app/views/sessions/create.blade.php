@@ -11,36 +11,44 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
   <style type="text/css">
-  ".login-form":{
+    
+    .area {
       border: 1px solid black;
+      border-radius: 8px;
+      -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, .2);
+         -moz-box-shadow: 0 0px 0px rgba(0, 0, 0, .2);
+              box-shadow: 0 0px 0px rgba(0, 0, 0, .2);
+        width: 500px;
+        margin: 0 auto;
+        
+    }
 
-  }
   </style>
 </head>
 <body>
 
-<form>
-  <div align="center">
-  {{Form::open(array('url'=>'sessions.store', 'class'=>'login-form'))}}
+
+<div class="area">
+  {{Form::open(array('url'=>'sessions.store'))}}
     <div><br>
-     {{Form::label('frmMainLabel','USER LOGIN')}}
+     <h2 align="center">USER LOG-IN</h2>
      </div><br>
-     <div>
+     <div class="form group">
      {{Form::text('usermail',null,array('class' =>'form-control','placeholder'=>'Username/Email'));}}
      </div><br>
-     <div>
+     <div class="form group">
      {{Form::password('password',array('class' =>'form-control'));}}
      </div>
      <br>
-     <div>
-     {{Form::submit('Login',array('class'=>'btn btn-primary'));}}
+     <div class="form group">
+     {{Form::submit('Login',array('class'=>'form-control btn btn-primary'));}}
      </div><br>
      <div>
      <a href="#">Forgot Password</a>
-     </div>
+    </div>
     
   {{ Form::close()}}
-  </div>
-</form>
+</div>
+
 </body>
 </html>
