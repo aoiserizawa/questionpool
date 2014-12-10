@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', function()
 {
 	return View::make('hello');
@@ -18,3 +19,8 @@ Route::get('/', function()
 
 Route::get('login','SessionsController@create');
 Route::get('logout', 'SessionsController@destroy');
+
+Route::get('/', 'HomeController@showNavbar');
+
+
+
