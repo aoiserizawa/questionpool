@@ -20,6 +20,7 @@ Route::get('/', function()
 Route::get('login','SessionsController@create');
 Route::get('logout', 'SessionsController@destroy');
 Route::get('retrievepass', 'SessionsController@forgotpassword');
+Route:: get('changepass','SessionsController@changepassword');
 
 Route::get('/', 'HomeController@showNavbar');
 

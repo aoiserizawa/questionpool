@@ -26,6 +26,10 @@ class SessionsController extends \BaseController {
 	{
 		return View::make('sessions.forgotpass');
 	}
+		public function changepassword()
+	{
+		return View::make('sessions.changepass');
+	}
 
 
 	/**

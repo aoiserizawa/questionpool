@@ -31,22 +31,18 @@
 <div class="area">
   {{Form::open(array('url'=>'sessions.store'))}}
     <div><br>
-     <h2 align="center">USER LOG-IN</h2>
+     <h2 align="center">Username: Change Password</h2>
      </div><br>
-     <div class="form group">
-     {{Form::text('usermail',null,array('class' =>'form-control','placeholder'=>'Username/Email'));}}
-     </div><br>
-     <div class="form group">
-     {{Form::password('password',array('class' =>'form-control'));}}
+     <div class="form group"><h4>New Password:</h4><br>
+     {{Form::password('newpassword',array('class' =>'form-control'));}}
+     </div>
+     <div class="form group"><h4>Retype Password:</h4><br>
+     {{Form::password('retypepassword',array('class' =>'form-control'));}}
      </div>
      <br>
-     <div class="form group">
-     {{Form::submit('Login',array('class'=>'form-control btn btn-primary'));}}
+     <div class="form group col-md-offset-8">
+     {{Form::submit('Save And Login',array('class'=>'btn btn-primary'));}}
      </div><br>
-     <div>
-     <a href="retrievepass">Forgot Password</a>
-    </div>
-    
   {{ Form::close()}}
 </div>
 
