@@ -31,21 +31,17 @@
 <div class="area">
   {{Form::open(array('url'=>'sessions.store'))}}
     <div><br>
-     <h2 align="center">USER LOG-IN</h2>
+     <h3>&nbspForgot Password</h3>
      </div><br>
      <div class="form group">
-     {{Form::text('usermail',null,array('class' =>'form-control','placeholder'=>'Username/Email'));}}
+     {{Form::text('email',null,array('class' =>'form-control','placeholder'=>'Email'));}}
      </div><br>
-     <div class="form group">
-     {{Form::password('password',array('class' =>'form-control'));}}
+     
+     <div class="form group col-md-offset-10">
+     {{Form::submit('Send',array('class'=>'btn btn-primary'));}}
      </div>
      <br>
-     <div class="form group">
-     {{Form::submit('Login',array('class'=>'form-control btn btn-primary'));}}
-     </div><br>
-     <div>
-     <a href="forgotpass">Forgot Password</a>
-    </div>
+
     
   {{ Form::close()}}
 </div>

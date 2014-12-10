@@ -19,6 +19,7 @@ Route::get('/', function()
 
 Route::get('login','SessionsController@create');
 Route::get('logout', 'SessionsController@destroy');
+Route::get('retrievepass', 'SessionsController@forgotpassword');
 
 Route::get('/', 'HomeController@showNavbar');
 
