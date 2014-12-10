@@ -17,7 +17,17 @@ class HomeController extends BaseController {
 
 	public function showWelcome()
 	{
-		return View::make('hello');
+		return View::make('layouts.hello');
+	}
+
+	public function showNavbar()
+	{
+		return View::make('reusable.nav');
+	}
+
+	public function showSidenav()
+	{
+		return View::make('reusable.sidenav');
 	}
 
 }
