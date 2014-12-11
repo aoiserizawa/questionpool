@@ -28,10 +28,8 @@ Route::get('retrievepass', 'SessionsController@forgotpassword');
 Route:: get('changepass','SessionsController@changepassword');
 Route:: get('register', 'SessionsController@registeruser');
 
-Route::get('/', 'HomeController@showNavbar');
+
 
 Route::get('changepass','SessionsController@changepassword');
-
-
 
 
