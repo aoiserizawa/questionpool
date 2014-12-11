@@ -14,15 +14,17 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('layouts.home');
 });
+Route::get('/','HomeController@showQuestionList');
+
+Route::resource('question', 'QuestionController');
+Route::get('question', 'QuestionController@create');
 
 Route::get('login','SessionsController@create');
 Route::get('logout', 'SessionsController@destroy');
 Route::get('retrievepass', 'SessionsController@forgotpassword');
-Route:: get('changepass','SessionsController@changepassword');
-
-Route::get('/', 'HomeController@showNavbar');
+Route::get('changepass','SessionsController@changepassword');
 
 
 
