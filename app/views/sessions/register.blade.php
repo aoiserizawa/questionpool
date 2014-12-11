@@ -1,6 +1,5 @@
 @extends('layouts.home')
 @section('main')
-<br><br><br><bn><br><br><br>
 <div class="area" align="center">
   {{Form::open(array('class'=>'form-inline','url'=>'sessions.store'))}}
     <div class="header"><br>
