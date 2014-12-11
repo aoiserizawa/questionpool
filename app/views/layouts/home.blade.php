@@ -6,6 +6,7 @@
 	<title>Question Pool</title>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+
 </head>
 <body>
 
@@ -20,7 +21,7 @@
 	@yield('sidenav')
 
 	<!--js files-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>	
 </body>
 </html>

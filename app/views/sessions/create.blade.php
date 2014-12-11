@@ -31,7 +31,7 @@
     <div class="header"><br>
      <h3 align="center">USER LOG-IN</h3>
      <hr></div><br>
-     <div class="form group" style="background-color">
+     <div class="form group">
      {{Form::text('usermail',null,array('class' =>'form-control','placeholder'=>'Username/Email'));}}
      </div><br>
      <div class="form group">
@@ -45,7 +45,7 @@
      </div>
      <br>
      <div>
-        <a href="retrievepass">Forgot Password</a>
+        <a href="retrievepass" >Forgot Password</a>
      </div>
      <br>    
   {{ Form::close()}}
