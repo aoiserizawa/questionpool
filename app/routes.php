@@ -24,14 +24,14 @@ Route::get('question', 'QuestionController@create');
 Route::get('login','SessionsController@create');
 Route::get('logout', 'SessionsController@destroy');
 Route::get('retrievepass', 'SessionsController@forgotpassword');
-<<<<<<< HEAD
+
 Route:: get('changepass','SessionsController@changepassword');
 Route:: get('register', 'SessionsController@registeruser');
 
 Route::get('/', 'HomeController@showNavbar');
-=======
+
 Route::get('changepass','SessionsController@changepassword');
->>>>>>> 655ff202e8bec7489b814bdf89fb87908dab6339
+
 
 
 

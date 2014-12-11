@@ -35,7 +35,7 @@ hr { display: block; height: 1px;
     border: 0; border-top: 1px solid #ccc;
     margin: 1em 0; padding: 0; border-color: #00868B;  
 }
-.btn{
+#btnRon{
 	width: 193px;
 	 box-shadow: 0px 3px 1px #888888;
 }

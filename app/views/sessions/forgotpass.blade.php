@@ -11,7 +11,7 @@
      </div><br>
      <br><br>
      <div class="form group col-md-offset-5">
-     {{Form::submit('Send',array('class'=>'btn btn-primary btn-sm'));}}
+     {{Form::submit('Send',array('class'=>'btn btn-primary btn-sm','id'=>'btnRon'));}}
      </div>
      <br>
 

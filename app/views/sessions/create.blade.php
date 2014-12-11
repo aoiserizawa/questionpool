@@ -1,6 +1,6 @@
 @extends('layouts.home')
 @section('main')
-<br><br><br><bn><br><br><br>
+
 <div class="area" align="center">
   {{Form::open(array('class'=>'form-inline','url'=>'sessions.store'))}}
     <div class="header"><br>
@@ -14,7 +14,7 @@
      </div>
      <br>
         <div>
-          {{Form::submit('Login',array('class'=>'btn btn-primary'));}}
+          {{Form::submit('Login',array('class'=>'btn btn-primary','id'=>'btnRon'));}}
           
         </div>
      
