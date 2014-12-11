@@ -19,6 +19,10 @@
 .header{
     background-color: green;
     -webkit-appearance: button;
+    border: 1px solid;
+    border-bottom: 50px;
+    border-radius: 7px;
+
 }
 
 </style>
