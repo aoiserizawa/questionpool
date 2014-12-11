@@ -1,20 +1,38 @@
 .mynavbar {
     text-align: center;
 }
+
 .mynavbar .nav {
     float:none;
 }
+
 .mynavbar .nav li {
     display:inline-block;
     float:none;
 }
-#navigation {
-    border-bottom: 1px solid black;
-}
+
 .right-col {
     height: 200px;
-    border-top: 1px solid black;
+    /* border-top: 1px solid black;
     border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid black; */
     text-align: center;
+}
+
+.left-col {
+    /* border: 1px solid black; */
+}
+
+#new-question #question-area {
+    height: 100px;
+    /* width: 500px; */
+}
+
+#new-question .choice {
+    height: 34px;
+    /* width: 365px; */
+}
+
+td {
+    height: 50px;
 }

@@ -20,14 +20,19 @@ class HomeController extends BaseController {
 		return View::make('layouts.hello');
 	}
 
-	public function showNavbar()
+	public function showQuestionList()
 	{
-		return View::make('reusable.nav');
+		return View::make('sessions.questionlist');
 	}
+	
+	// public function showNavbar()
+	// {
+	// 	return View::make('reusable.nav');
+	// }
 
-	public function showSidenav()
-	{
-		return View::make('reusable.sidenav');
-	}
+	// public function showSidenav()
+	// {
+	// 	return View::make('reusable.sidenav');
+	// }
 
 }
