@@ -1,33 +1,4 @@
-
 @extends('layouts.home')
-@section('style')
-<style>
-
-.area {
-    border: 1px solid green;
-    border-radius: 8px;
-      -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, .2);
-      -webkit-appearance: button;
-      -moz-box-shadow: 0 0px 0px rgba(0, 0, 0, .2);
-       box-shadow: 0 0px 0px rgba(0, 0, 0, .2);
-       width: 350px;
-       margin: 0 auto;
-       top: 500px;
-       background-color: #b6e2fc;
-       color: white;
-}
-.header{
-    background-color: green;
-    -webkit-appearance: button;
-    border: 1px solid;
-    border-bottom: 50px;
-    border-radius: 7px;
-
-}
-
-</style>
-
-
 @section('main')
 <br><br><br><bn><br><br><br>
 <div class="area" align="center">
@@ -42,14 +13,14 @@
      {{Form::password('password',array('class' =>'form-control'));}}
      </div>
      <br>
-     <div class="row">
-        <div class="form group">
+        <div>
           {{Form::submit('Login',array('class'=>'btn btn-primary'));}}
+          
         </div>
-     </div>
+     
      <br>
-     <div>
-        <a href="retrievepass" >Forgot Password</a>
+     <div align="left">
+        &nbsp&nbsp&nbsp&nbsp<a href="retrievepass" >Forgot Password?</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="retrievepass" >Register</a>
      </div>
      <br>    
   {{ Form::close()}}

@@ -30,6 +30,10 @@ class SessionsController extends \BaseController {
 	{
 		return View::make('sessions.changepass');
 	}
+	public function registeruser()
+	{
+		return View::make('sessions.register');
+	}
 
 
 	/**
