@@ -11,6 +11,7 @@
 
 	<!--navbar-->
 	@yield('navigation')
+	@yield('main')
 
 	<br/>
 	<br/>
