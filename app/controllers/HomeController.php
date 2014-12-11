@@ -24,15 +24,5 @@ class HomeController extends BaseController {
 	{
 		return View::make('sessions.questionlist');
 	}
-	
-	// public function showNavbar()
-	// {
-	// 	return View::make('reusable.nav');
-	// }
-
-	// public function showSidenav()
-	// {
-	// 	return View::make('reusable.sidenav');
-	// }
 
 }

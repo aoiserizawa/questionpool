@@ -18,8 +18,7 @@ Route::get('/', function()
 });
 Route::get('/','HomeController@showQuestionList');
 
-Route::resource('question', 'QuestionController');
-Route::get('question', 'QuestionController@create');
+Route::resource('addquestion', 'QuestionController');
 
 Route::get('login','SessionsController@create');
 Route::get('logout', 'SessionsController@destroy');

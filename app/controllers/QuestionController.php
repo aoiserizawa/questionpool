@@ -7,9 +7,14 @@ class QuestionController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function getHome()
 	{
 		return View::make('layouts.home');
+	}
+
+	public function index()
+	{
+		return View::make('sessions.addquestion');
 	}
 
 
@@ -20,7 +25,7 @@ class QuestionController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('sessions.addquestion');
+		//
 	}
 
 
