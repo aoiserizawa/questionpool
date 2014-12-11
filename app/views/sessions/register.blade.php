@@ -16,7 +16,7 @@
      </div>
      <br><br>
         <div class="form-inline">
-            {{Form::submit('Register And Login',array('class'=>'btn btn-primary','id'=>'btnRon'));}}
+            {{Form::submit('Register And Login',array('class'=>'btn btn-primary','id'=>'btn_forms'));}}
         </div>
      
      <br>

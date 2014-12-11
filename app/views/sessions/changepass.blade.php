@@ -13,7 +13,7 @@
      </div>
      <br>
      <div class="form-inline">
-     {{Form::submit('Save And Login',array('class'=>'btn btn-primary','id'=>'btnRon'));}}
+     {{Form::submit('Save And Login',array('class'=>'btn btn-primary','id'=>'btn_forms'));}}
      </div><br>
   {{ Form::close()}}
 </div>
