@@ -18,22 +18,27 @@ class SessionsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+  //Log in
 	public function create()
 	{
 		return View::make('sessions.create');
 	}
+  //In case user forgots password
 	public function forgotpassword()
 	{
 		return View::make('sessions.forgotpass');
 	}
+  //Change User Password
 		public function changepassword()
 	{
 		return View::make('sessions.changepass');
 	}
+  //Register a user
 	public function registeruser()
 	{
 		return View::make('sessions.register');
 	}
+  //Settings for the user
   public function usersettings()
   {
     return View::make('sessions.usersettings');

@@ -6,7 +6,7 @@
 	<title>Question Pool</title>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="css/styles2.css">
+    <link rel="stylesheet" type="text/css" href="css/styles2.css">
 </head>
 <body>
 
@@ -30,7 +30,7 @@
                     <!-- <li><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Settings</a></li>
+                    <li><a href="settings">Settings</a></li>
                     <li><a href="#">Logout</a></li>
                     <!-- <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
