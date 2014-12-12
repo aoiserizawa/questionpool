@@ -12,6 +12,16 @@ class QuestionController extends \BaseController {
 		return View::make('layouts.home');
 	}
 
+	public function getQuestionTrial()
+	{
+		return View::make('sessions.questiontrial');
+	}
+
+	public function getQuestionPreview()
+	{
+		return View::make('sessions.questionpreview');
+	}
+
 	public function index()
 	{
 		return View::make('sessions.addquestion');

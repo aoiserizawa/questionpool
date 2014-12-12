@@ -20,6 +20,9 @@ Route::get('/','HomeController@showQuestionList');
 
 Route::resource('addquestion', 'QuestionController');
 
+Route::get('questiontrial', 'QuestionController@getQuestionTrial');
+Route::get('questionpreview', 'QuestionController@getQuestionPreview');
+
 Route::get('login','SessionsController@create');
 Route::get('logout', 'SessionsController@destroy');
 Route::get('retrievepass', 'SessionsController@forgotpassword');
