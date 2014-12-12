@@ -32,6 +32,6 @@ Route:: get('register', 'SessionsController@registeruser');
 
 
 
-Route::get('changepass','SessionsController@changepassword');
+Route::get('settings','SessionsController@usersettings');
 
 

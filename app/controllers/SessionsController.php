@@ -34,7 +34,10 @@ class SessionsController extends \BaseController {
 	{
 		return View::make('sessions.register');
 	}
-
+  public function usersettings()
+  {
+    return View::make('sessions.usersettings');
+  }
 
 	/**
 	 * Store a newly created resource in storage.
