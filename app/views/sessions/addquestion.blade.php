@@ -61,7 +61,6 @@
             return template; 
         }
 
-        var choiceCount=3;
         $('#addChoiceBtn').click(function(){
             if(choiceCount<=5)
             {
