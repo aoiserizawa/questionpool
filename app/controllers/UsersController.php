@@ -1,6 +1,6 @@
 <?php
 
-class SessionsController extends \BaseController {
+class UsersController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,7 +9,7 @@ class SessionsController extends \BaseController {
 	 */
 	public function index()
 	{
-		
+		//
 	}
 
 
@@ -18,23 +18,20 @@ class SessionsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
- 
-  //In case user forgots password
-	public function forgotpassword()
+
+	public function create()
 	{
-		return View::make('sessions.forgotpass');
+		//
+		return View::make('users.register');
+
+
 	}
-  //Change User Password
-		public function changepassword()
+	public function login()
 	{
-		return View::make('sessions.changepass');
+		//
+		return View::make('users.login');
 	}
-  
-  //Settings for the user
-  public function usersettings()
-  {
-    return View::make('sessions.usersettings');
-  }
+
 
 	/**
 	 * Store a newly created resource in storage.
@@ -43,7 +40,22 @@ class SessionsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		//store input of the registering user
+
+			
+			$validation=array('email' => 'required', 'password' => 'required', 'retypepassword'=>'required|same:password');
+			$validator= Validator::make(Input::all(),$validation);
+				if ($validator->fails()) {
+					$messages = $validator->messages();
+					return Redirect::route('user.create')->withErrors($validator);
+				}else{
+					$userdata = Input::only(['email', 'password']);
+					$userdata['password'] = Hash:: make($userdata['password']);
+					$newUser = User::create($userdata);
+					return Redirect::to('login');
+
+				}
+
 	}
 
 
@@ -63,7 +75,7 @@ class SessionsController extends \BaseController {
 	 * Show the form for editing the specified resource.
 	 *
 	 * @param  int  $id
-		 * @return Response
+	 * @return Response
 	 */
 	public function edit($id)
 	{
@@ -89,13 +101,9 @@ class SessionsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy()
+	public function destroy($id)
 	{
-		Auth::logout();
-
-
-
-    return Redirect::home()->with('flash_message', 'You have been logged out');
+		//
 	}
 
 
