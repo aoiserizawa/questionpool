@@ -2,7 +2,7 @@
 
 @section('main')
     <div id="new-question" class="container col-md-12  left-col">
-        {{ Form::open(array('url' => 'sessions.storequestion')) }}
+        {{ Form::open(['route' => 'addquestion.store']) }}  <!-- array('url' => 'sessions.storequestion') -->
             <h1 class="text-center">Add New Question</h1>
             <div class="form-group" align="center">
                 {{ Form::text('question', null, array('id'=>'question-area', 'class'=>'form-control','placeholder'=>'Write question here')); }}
@@ -34,7 +34,8 @@
             <button id="addChoiceBtn" type="button" class="btn btn-default col-md-offset-8">Add Choice</button>
             <br/>
             <br/>
-            <button type="button" class="btn btn-primary col-md-offset-10">Save</button>
+            {{ Form::submit('Save', array('class'=>'btn btn-primary col-md-offset-10', 'id' => 'save'))}}
+            <!-- <button type="button" class="btn btn-primary col-md-offset-10">Save</button> -->
         {{ Form::close() }}
     </div>
     <script id="choice-template" type="text/html">

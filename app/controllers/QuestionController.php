@@ -46,7 +46,11 @@ class QuestionController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$question = new Questions;
+		$question -> questions = Input::get('question');
+		$question -> save();
+
+		return Redirect::route('addquestion.index');
 	}
 
 

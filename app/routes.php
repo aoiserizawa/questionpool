@@ -23,12 +23,12 @@ Route::resource('addquestion', 'QuestionController');
 Route::get('questiontrial', 'QuestionController@getQuestionTrial');
 Route::get('questionpreview', 'QuestionController@getQuestionPreview');
 
-Route::get('login','SessionsController@create');
 Route::get('logout', 'SessionsController@destroy');
 Route::get('retrievepass', 'SessionsController@forgotpassword');
 
 Route:: get('changepass','SessionsController@changepassword');
-Route:: get('register', 'SessionsController@registeruser');
+
+Route::resource('user','UsersController');
 
 
 
