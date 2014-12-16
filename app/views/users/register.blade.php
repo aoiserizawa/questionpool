@@ -8,7 +8,7 @@
      <h3 align="center">Registration</h3>
      <hr></div><br>
      <div class="form group"><h5 class="password">Email:</h5>
-     {{Form::text('email',null,array('class' =>'form-control','placeholder'=>'Username/Email'));}}
+     {{Form::text('email',null,array('class' =>'form-control','placeholder'=>'Email'));}}
 
      </div><br>
      <div class="form group"><h5 class="password">Password:</h5>

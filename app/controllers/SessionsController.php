@@ -11,30 +11,23 @@ class SessionsController extends \BaseController {
 	{
 		
 	}
+	public function create()
+	{
+		//
+				return View::make('sessions.login');	
+	}
+	public function redirectloggedinuser()
+	{
+		//
+				return View::make('sessions.questionlist');	
+	}
 
-
-	/**
+/**
 	 * Show the form for creating a new resource.
 	 *
 	 * @return Response
 	 */
- 
-  //In case user forgots password
-	public function forgotpassword()
-	{
-		return View::make('sessions.forgotpass');
-	}
-  //Change User Password
-		public function changepassword()
-	{
-		return View::make('sessions.changepass');
-	}
-  
-  //Settings for the user
-  public function usersettings()
-  {
-    return View::make('sessions.usersettings');
-  }
+ 	
 
 	/**
 	 * Store a newly created resource in storage.
@@ -43,7 +36,19 @@ class SessionsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		 
+		$rule=array('email'=>'required', 'password'=>'required');
+		$validator= Validator::make(Input::all(),$rule);
+		if($validator->fails()){
+				return Redirect::to('login/create')->withErrors($validator);
+		}
+		else{
+					$data = Input::only(['email', 'password']);
+
+        if(Auth::attempt(['email' => $data['email'], 'password' => $data['password']])){
+     			return Redirect::to('/');       
+        }
+		}
 	}
 
 
@@ -92,10 +97,7 @@ class SessionsController extends \BaseController {
 	public function destroy()
 	{
 		Auth::logout();
-
-
-
-    return Redirect::home()->with('flash_message', 'You have been logged out');
+		return Redirect::home()->with('flash_message', 'You have been logged out');
 	}
 
 

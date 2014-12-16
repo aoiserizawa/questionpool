@@ -23,14 +23,13 @@ class UsersController extends \BaseController {
 	{
 		//
 		return View::make('users.register');
-
-
 	}
 	public function login()
 	{
 		//
-		return View::make('users.login');
+	
 	}
+
 
 
 	/**
@@ -43,16 +42,16 @@ class UsersController extends \BaseController {
 		//store input of the registering user
 
 			
-			$validation=array('email' => 'required', 'password' => 'required', 'retypepassword'=>'required|same:password');
-			$validator= Validator::make(Input::all(),$validation);
+			$rule=array('email' => 'required|unique:users,email', 'password' => 'required', 'retypepassword'=>'required|same:password');
+			$validator= Validator::make(Input::all(),$rule);
 				if ($validator->fails()) {
 					$messages = $validator->messages();
 					return Redirect::route('user.create')->withErrors($validator);
 				}else{
 					$userdata = Input::only(['email', 'password']);
 					$userdata['password'] = Hash:: make($userdata['password']);
-					$newUser = User::create($userdata);
-					return Redirect::to('login');
+					$newUser = User::create($userdata);	
+					return Redirect::to('login/create');
 
 				}
 
