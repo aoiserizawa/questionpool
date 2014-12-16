@@ -11,23 +11,23 @@
             <div id="choicesArea">
                 <div class="input-group col-md-10 col-md-offset-1">
                     <span class="input-group-addon">
-                        {{ Form::checkbox('name','value',false); }}
+                        {{ Form::checkbox('flag[1]','value',false); }}
                     </span>
-                    {{ Form::text('choice',null, array('class'=>'form-control choice')); }}
+                    {{ Form::text('choice[1]',null, array('class'=>'form-control choice')); }}
                 </div>
                 <br/>
                 <div class="input-group col-md-10 col-md-offset-1">
                     <span class="input-group-addon">
-                        {{ Form::checkbox('name','value',false); }}
+                        {{ Form::checkbox('flag[2]','value',false); }}
                     </span>
-                    {{ Form::text('choice',null, array('class'=>'form-control choice')); }}
+                    {{ Form::text('choice[2]',null, array('class'=>'form-control choice')); }}
                 </div>
                 <br/>
                 <div class="input-group col-md-10 col-md-offset-1">
                     <span class="input-group-addon">
-                        {{ Form::checkbox('name','value',false); }}
+                        {{ Form::checkbox('flag[3]','value',false); }}
                     </span>
-                    {{ Form::text('choice',null, array('class'=>'form-control choice')); }}
+                    {{ Form::text('choice[3]',null, array('class'=>'form-control choice')); }}
                 </div>
             </div>
             <br/>
@@ -42,9 +42,9 @@
         <br/>
         <div class="input-group col-md-10 col-md-offset-1">
             <span class="input-group-addon">
-                {{ Form::checkbox('name','value',false); }}
+                <input name="flag[[NUMBER]]" type="checkbox" value="value">
             </span>
-            {{ Form::text('choice',null, array('class'=>'form-control choice')); }}
+            <input type="text" class="form-control choice" name="choice[[NUMBER]]"/>
         </div>
     </script>
 @stop
@@ -52,11 +52,13 @@
     <script>
     $(document).ready(function(){
         var choiceCount = 3;
+        var num = 3;
         var template = function(selector, obj) {
             var obj = obj ? obj : "";
             var template = $(selector).html();
             $.each(obj, function(key, value) {
-                template = template.replace(new RegExp('\\['+key.toUpperCase()+'\\]'), value);
+                template = template.replace(new RegExp('\\['+key.toUpperCase()+'\\]',"g"), value);
+                // "g" makes regexp global
             });
             return template; 
         }
@@ -65,7 +67,11 @@
             if(choiceCount<=5)
             {
                 choiceCount+=1;
-                var html = template('#choice-template');
+                num+=1;
+                console.log(num);
+                var html = template('#choice-template', {
+                    number : num
+                });
                 $('#choicesArea').append(html);
             }
             else

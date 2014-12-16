@@ -46,9 +46,30 @@ class QuestionController extends \BaseController {
 	 */
 	public function store()
 	{
-		$question = new Questions;
-		$question -> questions = Input::get('question');
-		$question -> save();
+
+		$question = Questions::create([
+			'questions' => Input::get('question'),
+		]);
+
+		//stores the id of the question for the foreign key of the choices table
+		$questionId = $question->id;
+
+		//Takes all inputs. Adds each choices within loop.
+		//checks checkboxes if checked/unchecked via key-value pair
+		$inputs = Input::all();
+		foreach($inputs['choice'] as $k => $v)
+		{
+			
+			$choice = new Choices;
+			$choice->choice = $v;
+			if(isset($inputs['flag'][$k]))
+			{
+				$choice->flag = 1;
+			}
+			$choice->questions_id = $questionId;
+			$choice->save();	
+				
+		}
 
 		return Redirect::route('addquestion.index');
 	}
