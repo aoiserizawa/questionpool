@@ -12,11 +12,10 @@
 */
 
 
-Route::get('/', function()
-{
-	return View::make('layouts.home');
-});
-Route::get('/','HomeController@showQuestionList');
+Route::get('/', 'HomeController@showBase');
+// Route::get('/','HomeController@showQuestionList');
+
+Route::resource('questionlist','QuestionListController');
 
 Route::resource('addquestion', 'QuestionController');
 
