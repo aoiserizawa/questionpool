@@ -9,13 +9,13 @@
             </thead>
             <tbody>
                 <tr>
-                    <td class="container">Who is the creator of facebook? <button type="button" class="pull-right btn btn-primary">Try</button></td>
+                    <td class="container"><a href="/questionpreview">Who is the creator of facebook?</a><button type="button" class="pull-right btn btn-primary">Try</button></td>
                 </tr>
                 <tr>
-                    <td class="container">Who is...? <button type="button" class="pull-right btn btn-primary">Try</button></td>
+                    <td class="container"><a href="/questionpreview">Who is...?</a><button type="button" class="pull-right btn btn-primary">Try</button></td>
                 </tr>
                 <tr>
-                    <td class="container">What is...? <button type="button" class="pull-right btn btn-primary">Try</button></td>
+                    <td class="container"><a href="/questionpreview">What is...?</a><button type="button" class="pull-right btn btn-primary">Try</button></td>
                 </tr>
             </tbody>
         </table>

@@ -13,7 +13,6 @@
 
 
 Route::get('/', 'HomeController@showBase');
-// Route::get('/','HomeController@showQuestionList');
 
 Route::resource('questionlist','QuestionListController');
 
