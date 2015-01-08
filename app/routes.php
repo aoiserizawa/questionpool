@@ -20,7 +20,8 @@ Route::resource('addquestion', 'QuestionController');
 
 Route::get('questiontrial', 'QuestionController@getQuestionTrial');
 Route::get('questionpreview', 'QuestionController@getQuestionPreview');
-Route::get('logout','SessionsController@destroy');
+Route::get('logout', 'SessionsController@destroy');
+
 Route::resource('login','SessionsController');
 
 Route::resource('user','UsersController');
