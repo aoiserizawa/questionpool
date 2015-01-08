@@ -31,7 +31,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="settings">Settings</a></li>
-                    <li><a href="login/create">Logout</a></li>
+                   {{HTML::linkAction('SessionController@destroy','Logout')}}
                     <!-- <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
                       <ul class="dropdown-menu" role="menu">
