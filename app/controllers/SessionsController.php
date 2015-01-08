@@ -46,7 +46,7 @@ class SessionsController extends \BaseController {
 					$data = Input::only(['email', 'password']);
 
         if(Auth::attempt(['email' => $data['email'], 'password' => $data['password']])){
-     			return Redirect::to('/');       
+     			return Redirect::to('questionlist');       
         }
 		}
 	}
