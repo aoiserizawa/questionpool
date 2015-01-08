@@ -9,7 +9,8 @@ class QuestionListController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('sessions.questionlist');
+		$questions = Questions::paginate(10);
+		return View::make('sessions.questionlist')->with('questions',$questions);
 	}
 
 
