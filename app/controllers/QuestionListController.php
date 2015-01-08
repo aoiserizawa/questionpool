@@ -56,7 +56,7 @@ class QuestionListController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		return View::make('sessions.questionpreview');
 	}
 
 
