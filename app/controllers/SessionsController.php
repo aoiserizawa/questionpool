@@ -98,7 +98,7 @@ class SessionsController extends \BaseController {
 	{
 		Auth::logout();
 		Session::flush();
-		return Redirect::home()->with('flash_message','You have been logged out');
+		return Redirect::to('login/create')->with('flash_message','You have been logged out');
 	}
 
 
