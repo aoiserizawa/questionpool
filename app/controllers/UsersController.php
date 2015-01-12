@@ -103,7 +103,11 @@ class UsersController extends \BaseController {
 								->update(array('email'=>$userdata['email'], 'password'=>$userdata['newpassword']));
 						}
 						else
-							echo 'Does not match in database';				
+								
+					
+							return Redirect::to('usersettings')->withErrors("Incorrect current password!");
+									
+
 				}
 				else{
 					$messages = $validator->messages();
