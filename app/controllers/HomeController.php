@@ -17,7 +17,11 @@ class HomeController extends BaseController {
 
 	public function showBase()
 	{
-		return View::make('layouts.home');
+		if(Auth::guest()){
+			return View::make('sessions.login');
+		}
+		else
+			return View::make('layouts.home');
 	}
 
 }

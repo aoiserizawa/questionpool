@@ -91,22 +91,23 @@ class UsersController extends \BaseController {
 
 		$rule=array('email' => 'required', 'currentpassword' => 'required','newpassword' => 'required', 'retypepassword'=>'required|same:newpassword');
 			$validator= Validator::make(Input::all(),$rule);
-				if ($validator->fails()) {
-					$messages = $validator->messages();
-					return Redirect::to('usersettings')->withErrors($validator);
+				if ($validator->passes()) {
+						$userdata = Input::only(['email', 'newpassword','currentpassword']);
+						$userdata['newpassword'] = Hash::make($userdata['newpassword']);
+						
+
+					if(Hash::check($userdata['currentpassword'], Auth::user()->password))
+						{
+							DB::table('users')
+								->where('email',Auth::user()->email)
+								->update(array('email'=>$userdata['email'], 'password'=>$userdata['newpassword']));
+						}
+						else
+							echo 'Does not match in database';				
 				}
 				else{
-
-					$userdata = Input::only(['email', 'newpassword','currentpassword']);
-					$userdata['newpassword'] = Hash:: make($userdata['newpassword']);
-					$userdata['currentpassword'] = Hash:: make($userdata['currentpassword']);
-					
-					
-					DB::table('users')
-					->where('email',Auth::user()->email)
-					->update(array('email'=>$userdata['email'], 'password'=>$userdata['newpassword']));
-
-					
+					$messages = $validator->messages();
+					return Redirect::to('usersettings')->withErrors($validator);
 				}
 	}
 

@@ -1,4 +1,3 @@
-
 @extends('layouts.home')
 @section('main')
 <div class="area" align="center">
