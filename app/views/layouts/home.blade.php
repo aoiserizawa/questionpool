@@ -63,8 +63,8 @@
 	    </div>
     </div>
 	<!--js files-->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>	
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>	
     @section('script')
     @show
 

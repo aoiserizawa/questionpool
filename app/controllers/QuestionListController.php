@@ -56,7 +56,13 @@ class QuestionListController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		return View::make('sessions.questionpreview');
+
+		$questions = Questions::findOrFail($id);
+		$choices = Choices::where('questions_id', '=', $id)->get();
+		foreach ($choices as $choice) {
+			var_dump($choice->choice);
+		}
+		return View::make('sessions.questionpreview')->with('questions',$questions);
 	}
 
 
