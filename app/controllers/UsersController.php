@@ -24,14 +24,11 @@ class UsersController extends \BaseController {
 		//
 		return View::make('users.register');
 	}
-	public function login()
+	public function settings()
 	{
-		//
-	
+		return View::make('users.usersettings');
 	}
-
-
-
+	
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -51,7 +48,7 @@ class UsersController extends \BaseController {
 					$userdata = Input::only(['email', 'password']);
 					$userdata['password'] = Hash:: make($userdata['password']);
 					$newUser = User::create($userdata);	
-					return Redirect::to('login/create');
+					return Redirect::to('loginpage');
 
 				}
 
@@ -90,7 +87,17 @@ class UsersController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		//update user account
+		echo 'lol';
+			
+					
+			      
+        				
+
+				
+
+	
+	
 	}
 
 

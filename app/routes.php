@@ -20,11 +20,17 @@ Route::resource('addquestion', 'QuestionController');
 
 Route::get('questiontrial', 'QuestionController@getQuestionTrial');
 Route::get('questionpreview', 'QuestionController@getQuestionPreview');
-Route::get('logout', 'SessionsController@destroy');
+//Sessions
+Route::post('log-in', 'SessionsController@store');
+Route::get('loginpage', 'SessionsController@create');
+Route::get('log-out', 'SessionsController@destroy');
+//Users
+Route::post('register', 'UsersController@store');
+Route::get('registerpage', 'UsersController@create');
+Route::get('usersettings', 'UsersController@settings');
 
-Route::resource('login','SessionsController');
 
-Route::resource('user','UsersController');
+
 
 
 

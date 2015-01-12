@@ -2,7 +2,7 @@
 @extends('layouts.home')
 @section('main')
 <div class="area" align="center">
-  {{Form::open(array('class'=>'form-inline','route'=>'user.store', 'method'=>'POST'))}}
+  {{Form::open(array('class'=>'form-inline','action'=>'UsersController@store', 'method'=>'POST'))}}
 
     <div class="header"><br>
      <h3 align="center">Registration</h3>
