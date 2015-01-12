@@ -85,19 +85,15 @@ class UsersController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update()
 	{
 		//update user account
-		echo 'lol';
-			
-					
-			      
-        				
-
-				
-
-	
-	
+		
+		$userdata = Input::only(['email', 'newpassword']);
+		$userdata['password'] = Hash:: make($userdata['password']);
+		DB::table('users')
+		->where('id',3)
+		->update(array('email'=>$userdata['email'], 'password'=>$userdata['newpassword']));
 	}
 
 

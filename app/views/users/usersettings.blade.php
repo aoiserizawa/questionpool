@@ -1,7 +1,7 @@
 @extends('layouts.home')
 @section('main')
 <div class="area" align="center">
-  {{Form::open(array('method'=>'POST'))}}
+  {{Form::open(array('action'=>'UsersController@update','method'=>'POST'))}}
   <?php
      $user= DB::table('users')->where('id','=','3')->first();
   ?>

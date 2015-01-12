@@ -1,3 +1,11 @@
+<?php
+if (Auth::guest())
+{
+   echo 'return mo sa loginpage';
+}
+else
+
+?>
 <!DOCTYPE html>
 <html>
 <head>

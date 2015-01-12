@@ -28,6 +28,7 @@ Route::get('log-out', 'SessionsController@destroy');
 Route::post('register', 'UsersController@store');
 Route::get('registerpage', 'UsersController@create');
 Route::get('usersettings', 'UsersController@settings');
+Route::post('updateaccount', 'UsersController@update');
 
 
 
