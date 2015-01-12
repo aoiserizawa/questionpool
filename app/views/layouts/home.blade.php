@@ -1,11 +1,3 @@
-<?php
-if (Auth::guest())
-{
-   echo 'return mo sa loginpage';
-}
-else
-
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,8 +9,7 @@ else
     <link rel="stylesheet" type="text/css" href="/css/styles2.css">
 </head>
 <body>
-
-	<!--navbar-->
+     <!--navbar-->
 	 <nav id="navigation" class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -31,6 +22,7 @@ else
                 </button>
                 <a class="navbar-brand" href="/">Question Pool</a>
             </div>
+
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

@@ -88,12 +88,26 @@ class UsersController extends \BaseController {
 	public function update()
 	{
 		//update user account
-		
-		$userdata = Input::only(['email', 'newpassword']);
-		$userdata['password'] = Hash:: make($userdata['password']);
-		DB::table('users')
-		->where('id',3)
-		->update(array('email'=>$userdata['email'], 'password'=>$userdata['newpassword']));
+
+		$rule=array('email' => 'required', 'currentpassword' => 'required','newpassword' => 'required', 'retypepassword'=>'required|same:newpassword');
+			$validator= Validator::make(Input::all(),$rule);
+				if ($validator->fails()) {
+					$messages = $validator->messages();
+					return Redirect::to('usersettings')->withErrors($validator);
+				}
+				else{
+
+					$userdata = Input::only(['email', 'newpassword','currentpassword']);
+					$userdata['newpassword'] = Hash:: make($userdata['newpassword']);
+					$userdata['currentpassword'] = Hash:: make($userdata['currentpassword']);
+					
+					
+					DB::table('users')
+					->where('email',Auth::user()->email)
+					->update(array('email'=>$userdata['email'], 'password'=>$userdata['newpassword']));
+
+					
+				}
 	}
 
 

@@ -965,6 +965,7 @@ return array(
     'QuestionController' => $baseDir . '/app/controllers/QuestionController.php',
     'QuestionListController' => $baseDir . '/app/controllers/QuestionListController.php',
     'Questions' => $baseDir . '/app/models/Questions.php',
+    'RegisterUsers' => $baseDir . '/app/database/migrations/2015_01_12_061342_register_users.php',
     'SessionHandlerInterface' => $vendorDir . '/symfony/http-foundation/Symfony/Component/HttpFoundation/Resources/stubs/SessionHandlerInterface.php',
     'SessionsController' => $baseDir . '/app/controllers/SessionsController.php',
     'Stack\\Builder' => $vendorDir . '/stack/builder/src/Stack/Builder.php',
