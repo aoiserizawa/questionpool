@@ -1,7 +1,7 @@
 @extends('layouts.home')
 @section('main')
 <div class="area">
-  {{Form::open(array('url'=>'sessions.store'))}}
+  {{Form::open(array('action'=>'UsersController@retrievepass','method'=>'POST'))}}
     <div class="header" align="center"><br>
      <h3>&nbspForgot Password</h3><hr>
      </div><br>

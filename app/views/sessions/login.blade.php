@@ -19,7 +19,7 @@
      
      <br>
      <div align="left">
-        &nbsp&nbsp&nbsp&nbsp<a href="retrievepass" >Forgot Password?</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{HTML::linkAction('UsersController@create','Register')}}
+        &nbsp&nbsp&nbsp&nbsp{{HTML::linkAction('UsersController@forgotpass','Forgot Password?')}}</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{HTML::linkAction('UsersController@create','Register')}}
         
                     
      </div>

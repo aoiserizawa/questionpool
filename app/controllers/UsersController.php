@@ -28,7 +28,32 @@ class UsersController extends \BaseController {
 	{
 		return View::make('users.usersettings');
 	}
-	
+	public function forgotpass()
+	{
+		return View::make('sessions.forgotpass');
+	}
+	public function retrievepass()
+	{
+		//retrieve password
+										
+		$verifyemail= Input:: only(['email']);
+		$emailexist = DB::table('users')
+												->select('email')
+												->where('email','=',$verifyemail)->get();
+		$userpassword = DB::table('users')
+												->select('password')
+												->where('email','=',$verifyemail)->get();
+			if ($verifyemail=$emailexist) {
+				
+					Mail::send('sessions.email',$userpassword, function($message)
+					{
+						$message->to('ronkevinmanuela@gmail.com', 'Ron Kevin')
+          					->subject('QuestionPool forgotten Password');
+          					return Redirect::to('retrievepass')->withErrors("Sent to your email");
+					});
+			}else
+				return Redirect::to('forgotpass')->withErrors("Please enter a valid/existing email!");
+		}
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -64,6 +89,7 @@ class UsersController extends \BaseController {
 	public function show($id)
 	{
 		//
+
 	}
 
 
