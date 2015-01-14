@@ -35,25 +35,66 @@ class UsersController extends \BaseController {
 	public function retrievepass()
 	{
 		//retrieve password
-										
-		$verifyemail= Input:: only(['email']);
-		$emailexist = DB::table('users')
-												->select('email')
-												->where('email','=',$verifyemail)->get();
-		$userpassword = DB::table('users')
-												->select('password')
-												->where('email','=',$verifyemail)->get();
-			if ($verifyemail=$emailexist) {
-				
-					Mail::send('sessions.email',$userpassword, function($message)
-					{
-						$message->to('ronkevinmanuela@gmail.com', 'Ron Kevin')
-          					->subject('QuestionPool forgotten Password');
-          					return Redirect::to('retrievepass')->withErrors("Sent to your email");
-					});
-			}else
-				return Redirect::to('forgotpass')->withErrors("Please enter a valid/existing email!");
+
+		$validator= Validator::make(Input::all(),
+			array(
+				'email'=>'required|email'
+			)
+		);
+			if ($validator->fails()) {
+
+				return Redirect::to('forgotpass')
+					->withErrors($validator)
+					->withInput();
+			}else{
+				//validate email if it exist
+				$user = User::where('email','=', Input::get('email'));
+				if($user->count()){
+					$user = $user->first();
+
+					//generate new code and password
+					$code = str_random(60);
+					$password = str_random(60);
+
+					$user->code = $code;
+					$user->password_temp= Hash::make($password);
+
+					if ($user->save()) {
+						Mail::send('sessions.email',array('url'=> URL::route('account-recover',$code),'password'=>$password), function($message) use($user)
+						{
+								$message->to($user->email)->subject('Your new password');
+						});
+
+						return Redirect::to('/')
+								->with('global','We have sent you a new password via email');
+						;						
+					}
+				}
+
+			}
+			return Redirect::to('forgotpass')
+						->with('global', 'Could not request new password');		
 		}
+		public function getRecover($code){
+			$user = User::where('code','=',$code)
+						->where('password_temp','!=','');
+
+						if($user->count()){
+
+								$user = $user->first();
+							$user->password = $user->password_temp;
+							$user->password_temp = '';
+							$user->code = '';
+
+							if ($user->save()) {
+								return Redirect::to('/')
+									->with('global', 'Your account has been reset, you can sign-in with your new password provided');
+							}
+						}
+
+
+		}
+
 	/**
 	 * Store a newly created resource in storage.
 	 *

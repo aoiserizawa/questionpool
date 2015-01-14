@@ -25,7 +25,12 @@ Route::post('log-in', 'SessionsController@store');
 Route::get('loginpage', 'SessionsController@create');
 Route::get('log-out', 'SessionsController@destroy');
 Route::get('forgotpass', 'UsersController@forgotpass');
+Route::get('/account/recover/{code}', array(
+            'as'=>'account-recover',
+            'uses'=> 'UsersController@getRecover'
+));
 Route::post('retrievepass', 'UsersController@retrievepass');
+
 //Users
 Route::post('register', 'UsersController@store');
 Route::get('registerpage', 'UsersController@create');

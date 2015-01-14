@@ -7,6 +7,9 @@
      </div><br>
      <div class="form group col-md-12">
      {{Form::text('email',null,array('class' =>'form-control','placeholder'=>'Email'));}}
+     @if($errors->has('email'))
+     {{$errors->first('email')}}
+     @endif     
      </div><br>
      <br><br>
      <div class="form group col-md-offset-5">
