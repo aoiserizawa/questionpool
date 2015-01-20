@@ -30,8 +30,14 @@
                     <!-- <li><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li>{{HTML::linkAction('UsersController@settings','Settings')}}</li>
-                    <li>{{HTML::linkAction('SessionsController@destroy','Logout')}}</li>
+                    <?php
+                    if (Auth::check()) {
+                    ?>
+                    <li> {{HTML::linkAction('UsersController@settings','Settings')}} </li>
+                    <li> {{HTML::linkAction('SessionsController@destroy','Logout')}} </li>
+                    <?php
+                    }
+                    ?>
                     <!-- <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
                       <ul class="dropdown-menu" role="menu">

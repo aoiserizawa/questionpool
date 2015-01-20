@@ -98,7 +98,7 @@ class SessionsController extends \BaseController {
 	{
 		Auth::logout();
 		Session::flush();
-		return Redirect::to('loginpage')->with('message', 'You have been logged out');
+		return Redirect::to('loginpage')->withErrors('You have been logged out');
 	}
 
 

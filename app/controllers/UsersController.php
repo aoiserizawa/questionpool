@@ -34,7 +34,7 @@ class UsersController extends \BaseController {
 	}
 	public function retrievepass()
 	{
-		//retrieve password
+		//retrieve password by having a new password and activating it
 
 		$validator= Validator::make(Input::all(),
 			array(
@@ -66,8 +66,8 @@ class UsersController extends \BaseController {
 						});
 
 						return Redirect::to('/')
-								->with('global','We have sent you a new password via email');
-						;						
+								->withErrors('We have sent you a new password via email');
+						
 					}
 				}
 
@@ -82,13 +82,13 @@ class UsersController extends \BaseController {
 						if($user->count()){
 
 								$user = $user->first();
-							$user->password = $user->password_temp;
-							$user->password_temp = '';
-							$user->code = '';
+								$user->password = $user->password_temp;
+								$user->password_temp = '';
+								$user->code = '';
 
 							if ($user->save()) {
 								return Redirect::to('/')
-									->with('global', 'Your account has been reset, you can sign-in with your new password provided');
+									->withErrors('Your account has been reset, you can sign-in with the new password provided');
 							}
 						}
 
@@ -168,6 +168,7 @@ class UsersController extends \BaseController {
 							DB::table('users')
 								->where('email',Auth::user()->email)
 								->update(array('email'=>$userdata['email'], 'password'=>$userdata['newpassword']));
+								return Redirect::to('/loginpage')->WithErrors("Password was successfully changed");
 						}
 						else
 								
