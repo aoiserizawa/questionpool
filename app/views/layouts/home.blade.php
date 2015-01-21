@@ -59,8 +59,15 @@
 	<div id="body" class="container">
 		<!--sidemenu-->
 		<div id="side-menu" class="col-md-2 right-col">
-	        <h4><a href="/questionlist">Questions List</a></h4>
-	        <h4><a href="/addquestion">Add Questions</a></h4>
+        <?php
+            if (Auth::guest()) {
+                     echo '<h4><a href="/loginpage">Questions List</a></h4><h4><a href="/loginpage">Add Questions</a></h4>';
+            }
+            else
+             echo '<h4><a href="/questionlist">Questions List</a></h4><h4><a href="/addquestion">Add Questions</a></h4>';   
+        ?>
+	      
+	        
 	    </div>
 
 	    <!--content-->

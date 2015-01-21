@@ -1,5 +1,4 @@
 @extends('layouts.home')
-
 @section('main')
         <table class="table-bordered col-md-12">
             <thead> 
