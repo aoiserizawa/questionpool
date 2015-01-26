@@ -81,14 +81,14 @@ class QuestionListController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update()
 	{
-		$questions = Questions::find($id);
+		$id= Input::get('hidden'); 
 		$question = Input::get('question');
-		$questions->questions = Input::get('question');
-		$questions->save();
-
-		return Redirect::route('questionlist.index');
+			DB::table('questions')
+								->where('id','=', $id)
+								->update(array('questions'=>$question));
+			return Redirect::route('questionlist.index');
 	}
 
 
