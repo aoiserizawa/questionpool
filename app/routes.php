@@ -15,6 +15,7 @@
 Route::get('/', 'HomeController@showBase');
 
 Route::resource('questionlist','QuestionListController');
+Route::post('questionlist/choicecount', array('as'=>'questionpreview.choiceCount','uses'=>'QuestionListController@countChoices'));
 
 Route::resource('addquestion', 'QuestionController');
 
