@@ -71,7 +71,7 @@ class QuestionListController extends \BaseController {
 		
 		$id = Input::all();
 		$numChoices = Choices::where('questions_id', '=' ,$id)->count();
-		return Response::json(array('choiceCount' => 'count'));
+		return Response::json(array('choiceCount' =>$numChoices));
 	}
 
 

@@ -60,13 +60,14 @@
         {{ Form::close() }}
     </div>
     <script id="choice-template" type="text/html">
+        
         <div class="input-group col-md-10 col-md-offset-1">
             <span class="input-group-addon">
                 <input name="flag[[NUMBER]]" type="checkbox" value="value">
             </span>
             <input type="text" class="form-control choice" name="choice[[NUMBER]]"/>
         </div>
-        </br>
+        <br/>
     </script>
 @stop
 
@@ -80,40 +81,27 @@
             var template = $(selector).html();
             $.each(obj, function(key, value) {
                 template = template.replace(new RegExp('\\['+key.toUpperCase()+'\\]',"g"), value);
+                // "g" makes regexp global
             });
             return template; 
-        }   
-
+        }
 
         $('#addChoiceBtn').click(function(){
-            var questionId = $('#question_id').val();
-            var data    = 'id='+ questionId;
-            var url    = '/questionlist/choicecount';
-            $.post(url, data, function(result){
-                 $.each(result, function(key, value){
-                    console.log(value);
-                    var num = value + 1;
-                    alert(num);
-                 });
-                 
-            });
-   });
-
-            // if(choiceCount<=5)
-            // {
-            //     choiceCount+=1;
-            //     num+=1;
-            //     console.log(choiceCount);
-            //     var html = template('#choice-template', {
-            //         number : num
-            //     });
-            //     $('#choicesArea').append(html);
-            // }
-            // else
-            // {   
-            //     $('#choicesArea').append('<br/><span class="label label-danger">Choice Limit Reached</span>');
-            // }
-        // });
+            if(choiceCount<=5)
+            {
+                choiceCount+=1;
+                num+=1;
+                console.log(num);
+                var html = template('#choice-template', {
+                    number : num
+                });
+                $('#choicesArea').append(html);
+            }
+            else
+            {
+                $('#choicesArea').append('<br/><span class="label label-danger">Choice Limit Reached</span>');
+            }
+        });
     });
     </script>
 @stop
