@@ -54,7 +54,7 @@ class UsersController extends \BaseController {
 
 					//generate new code and password
 					$code = str_random(60);
-					$password = str_random(60);
+					$password = str_random(10);
 
 					$user->code = $code;
 					$user->password_temp= Hash::make($password);
@@ -73,7 +73,7 @@ class UsersController extends \BaseController {
 
 			}
 			return Redirect::to('forgotpass')
-						->with('global', 'Could not request new password');		
+						->withErrors('Could not request new password');		
 		}
 		public function getRecover($code){
 			$user = User::where('code','=',$code)
@@ -171,11 +171,7 @@ class UsersController extends \BaseController {
 								return Redirect::to('/loginpage')->WithErrors("Password was successfully changed");
 						}
 						else
-								
-					
-							return Redirect::to('usersettings')->withErrors("Incorrect current password!");
-									
-
+								return Redirect::to('usersettings')->withErrors("Incorrect current password!");
 				}
 				else{
 					$messages = $validator->messages();

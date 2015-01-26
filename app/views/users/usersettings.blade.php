@@ -1,5 +1,6 @@
 @extends('layouts.home')
 @section('main')
+
 <div class="area" align="center">
   {{Form::open(array('action'=>'UsersController@update','method'=>'POST'))}}
     <div class="header" align="center"><br>
