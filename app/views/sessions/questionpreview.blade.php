@@ -74,8 +74,8 @@
 @section('script')
     <script>
     $(document).ready(function(){
-        var choiceCount = 3;
-        var num = 3;
+        // var choiceCount = 3;
+        // var num = 3;
         var template = function(selector, obj) {
             var obj = obj ? obj : "";
             var template = $(selector).html();
@@ -87,20 +87,28 @@
         }
 
         $('#addChoiceBtn').click(function(){
-            if(choiceCount<=5)
-            {
-                choiceCount+=1;
-                num+=1;
-                console.log(num);
-                var html = template('#choice-template', {
-                    number : num
-                });
-                $('#choicesArea').append(html);
-            }
-            else
-            {
-                $('#choicesArea').append('<br/><span class="label label-danger">Choice Limit Reached</span>');
-            }
+            $.get( "/choicecount", {},
+                function(data) {
+                   var choiceCount = data;
+                   console.log(choiceCount);
+                }
+            );
+
+
+            // if(choiceCount<=5)
+            // {
+            //     choiceCount+=1;
+            //     num+=1;
+            //     console.log(num);
+            //     var html = template('#choice-template', {
+            //         number : num
+            //     });
+            //     $('#choicesArea').append(html);
+            // }
+            // else
+            // {
+            //     $('#choicesArea').append('<br/><span class="label label-danger">Choice Limit Reached</span>');
+            // }
         });
     });
     </script>

@@ -56,9 +56,11 @@ class QuestionListController extends \BaseController {
 	 */
 	public function edit($id)
 	{
+		//retrieves question string
 		$questions = Questions::findOrFail($id);
+		//retrieves choice string and flag value and choice id
 		$choice = Choices::where('questions_id', '=', $id)
-					->select('choice','flag')->get();
+					->select('choice','flag', 'id')->get();
 		
 		return View::make('sessions.questionpreview')
 					->with("questions", $questions)
@@ -68,7 +70,6 @@ class QuestionListController extends \BaseController {
 
 	public function countChoices()
 	{
-		
 		$id = Input::all();
 		$numChoices = Choices::where('questions_id', '=' ,$id)->count();
 		return Response::json(array('choiceCount' =>$numChoices));
@@ -86,9 +87,9 @@ class QuestionListController extends \BaseController {
 		$id= Input::get('hidden'); 
 		$question = Input::get('question');
 			DB::table('questions')
-								->where('id','=', $id)
-								->update(array('questions'=>$question));
-			return Redirect::route('questionlist.index');
+					->where('id','=', $id)
+					->update(array('questions'=>$question));
+		return Redirect::route('questionlist.index');
 	}
 
 
